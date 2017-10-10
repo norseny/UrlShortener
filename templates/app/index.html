@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{#    <link rel="stylesheet" type="text/css" href="{% static 'pollsApp/style.css' %}"/>#}
+    <title>Url Shortener App</title>
+</head>
+<body>
+    {% if alias_list %}
+        <ul>
+        {%  for alias in alias_list %}
+            <li><a href="{% url 'app:detail' alias.id %}">{{ alias.alias_name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+    <p> No aliases are available. </p>
+    {%  endif %}
+</body>
+</html>
